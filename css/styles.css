@@ -1,0 +1,6 @@
+#letter {
+ display: none; 
+ background-image: url("../img/parchment.jpg");
+ padding: 20px;
+ font-family: cursive;
+}
