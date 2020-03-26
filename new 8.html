@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Movie</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h4>Movie Theater!</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Welcome, movie theater owner. Select which movie should play at which time and then hit submit. A website will be generated with showtimes and the ability to purchase tickets</p>
+      </div>
+    </div>
+    <div id="ownerInput">
+      <form id="showtimeForm">
+        <div class="row">
+          <div class="col-md-3">
+            <h4>12:00pm</h4>
+            <select name="movie12" id="selectMovie12">
+              <option value="1">Children's Movie Part II (Rated: G)</option>
+              <option value="2">Latest Blockbuster (Rated: PG-13)</option>
+              <option value="3">Steamy Romance (Rated: R)</option>
+              <option value="4">Arthouse Film (Rated: NR)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h4>3:00pm</h4>
+            <select name="movie15" id="selectMovie15">
+              <option value="1">Children's Movie Part II (Rated: G)</option>
+              <option value="2">Latest Blockbuster (Rated: PG-13)</option>
+              <option value="3">Steamy Romance (Rated: R)</option>
+              <option value="4">Arthouse Film (Rated: NR)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h4>6:00pm</h4>
+            <select name="movie18" id="selectMovie18">
+              <option value="1">Children's Movie Part II (Rated: G)</option>
+              <option value="2">Latest Blockbuster (Rated: PG-13)</option>
+              <option value="3">Steamy Romance (Rated: R)</option>
+              <option value="4">Arthouse Film (Rated: NR)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h4>9:00pm</h4>
+            <select name="movie21" id="selectMovie21">
+              <option value="1">Children's Movie Part II (Rated: G)</option>
+              <option value="2">Latest Blockbuster (Rated: PG-13)</option>
+              <option value="3">Steamy Romance (Rated: R)</option>
+              <option value="4">Arthouse Film (Rated: NR)</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr>
+
+
+    <div id="showtimes">
+      <h4>Click on a showtime to purchase tickets.</h4>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>12:00 - <span id="displayMovieName12"></span></h4>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</body>
+</html>
+
+
+function Movie(movieName, movieRating, movieShowtime) {
+  this.movieName = movieName;
+  this.movieRating = movieRating;
+  this.movieShowtime = movieShowtime;
+}
+
+var movies {
+  movieName
+}
+
+$(document).ready(function() {
+
+
+  $("form#showtimeForm").submit(function(event) {
+    event.preventDefault();
+
+    var movieSlot12 = $("select#selectMovie12").val();
+    var movieSlot15 = $("select#selectMovie15").val();
+    var movieSlot18 = $("select#selectMovie18").val();
+    var movieSlot21 = $("select#selectMovie21").val();
+
+    console.log(movieSlot12, movieSlot15, movieSlot18, movieSlot21);
+
+
+
+    var inputtedMovieName12 = $("input#inputMovieName12").val();
+    var inputtedMovieRating12 = $("select#selectMovieRating12").val();
+    var newMovie12 = new Movie (inputtedMovieName12, inputtedMovieRating12);
+
+
+    var inputtedMovieName15 = $("input#inputMovieName15").val();
+    var inputtedMovieRating15 = $("select#selectMovieRating15").val();
+    var newMovie15 = new Movie (inputtedMovieName15, inputtedMovieRating15);
+
+    var inputtedMovieName18 = $("input#inputMovieName18").val();
+    var inputtedMovieRating18 = $("select#selectMovieRating18").val();
+    var newMovie18 = new Movie (inputtedMovieName18, inputtedMovieRating18);
+
+    var inputtedMovieName21 = $("input#inputMovieName21").val();
+    var inputtedMovieRating21 = $("select#selectMovieRating21").val();
+    var newMovie21 = new Movie (inputtedMovieName21, inputtedMovieRating21);
+
+    console.log(newMovie12);
+    console.log(newMovie15);
+    console.log(newMovie18);
+    console.log(newMovie21);
+
+    $("#displayMovieName12").text(newMovie12.movieName + "  Rated " + newMovie12.movieRating);
+
+
+  })
+
+})
